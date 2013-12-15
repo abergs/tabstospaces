@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Tabs To Spaces Online Converter</title>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+    <style>
+        body, html {
+            padding: 0;
+            margin: 0;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        header {
+            padding: 20px;
+            height: 200px;
+            text-align: center;
+            background: url(pattern.png);
+            color: #fff;
+        }
+
+        h1 {
+            font-weight: 100;
+            font-size: 51px;
+        }
+
+            h1 small {
+                font-size: 31px;
+            }
+
+        section {
+            text-align: center;
+        }
+
+        button {
+            padding: 15px 10px;
+            cursor: pointer;
+            border: 1px solid #e5a9ff;
+            border-radius: 5px;
+            color: #fff;
+            background: url(pattern.png);
+            box-shadow: 0px 0px 10px #ddd;
+            font-weight: bold;
+        }
+        footer {
+            margin:40px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tabs to Spaces<br /><small>Online Converter</small></h1>
+    </header>
+    <article>
+
+        <section id="col1">
+            <h2>Paste Code / Text</h2>
+            <textarea id="input" rows="12" cols="60" autofocus></textarea>
+            <br />
+            <button onclick="convert()">Convert tabs to spaces</button>
+        </section>
+        <section id="col2">
+            <h2>Result</h2>
+            <textarea id="output" rows="12" cols="60"></textarea><br />
+            <button onclick="addSpaces()">Add four spaces to the beginning of every row</button>
+        </section>
+    </article>
+    <footer>
+        <section>
+            Built by <a href="http://andersaberg.com">Anders Åberg</a> (<a href="http://twitter.com/bigcheeseanders">@BigCheeseAnders</a>) with whipped cream and a sprinkle of joy.
+        </section>
+    </footer>
+    <script>
+        var fourSpaces = '    ';
+        var input = document.getElementById("input");
+        var output = document.getElementById("output");
+
+        function convert() {
+            var text = input.value;
+
+            var result = text.replace(/\t/g, fourSpaces);
+
+            output.value = result;
+            output.focus();
+            output.select();
+        }
+
+        function addSpaces() {
+            var text = output.value;
+
+            var result = text.replace(/^/gm, fourSpaces);
+
+            output.value = result;
+            output.focus();
+            output.select();
+        }
+    </script>
+</body>
+</html>
