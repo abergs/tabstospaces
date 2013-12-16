@@ -3,12 +3,29 @@
 <head>
     <title>Tabs To Spaces Online Converter</title>
     <meta name="description" content="Convert tabs to spaces online. A simple way to replace tabs with spaces." />
-    <link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
     <style>
-        body, html {
+		/* this is how a font-face rule usually looks like */
+		@font-face {
+			font-family: 'ralewaythin';
+				src: url('raleway-thin-webfont.eot'); /* IE9 Compat Modes */
+				src: url('wraleway-thin-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+				 url('raleway-thin-webfont.woff') format('woff'), /* Modern Browsers */
+				 url('raleway-thin-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+				 url('raleway-thin-webfont.svg#ralewaythin') format('svg'); /* Legacy iOS */
+		}
+
+		/* the fix ! simply ADD this block BELOW the above block */
+		@media screen and (-webkit-min-device-pixel-ratio:0) {
+			@font-face {
+				font-family: 'ralewaythin2';
+					src: url('raleway-thin-webfont.svg#ralewaythin') format('svg');
+			}
+		}    
+		
+		body, html {
             padding: 0;
             margin: 0;
-            font-family: 'Raleway', sans-serif;
+            font-family: 'ralewaythin2','ralewaythin', sans-serif;
         }
 
         header {
