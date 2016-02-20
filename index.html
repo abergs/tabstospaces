@@ -57,6 +57,12 @@
             <h2>Paste Code / Text</h2>
             <textarea id="input" rows="12" cols="60" autofocus></textarea>
             <br />
+            <select id="numSpaces">
+                <option value="1">1 space</option>
+                <option value="2">2 spaces</option>
+                <option value="4" selected="selected">4 spaces</option>
+            </select>
+            <br />
             <button onclick="convert()">Convert tabs to spaces</button>
         </section>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -81,14 +87,18 @@
         </section>
     </footer>
     <script>
-        var fourSpaces = '    ';
         var input = document.getElementById("input");
         var output = document.getElementById("output");
 
         function convert() {
             var text = input.value;
-
-            var result = text.replace(/\t/g, fourSpaces);
+            var numOfSpaces = parseInt(document.getElementById("numSpaces").value);
+            var spaces = "";
+            for (var i = 0; i < numOfSpaces; i++) {
+                spaces = spaces + ' ';
+            }
+            
+            var result = text.replace(/\t/g, spaces);
 
             output.value = result;
             output.focus();
@@ -98,7 +108,7 @@
         function addSpaces() {
             var text = output.value;
 
-            var result = text.replace(/^/gm, fourSpaces);
+            var result = text.replace(/^/gm, "    ");
 
             output.value = result;
             output.focus();
